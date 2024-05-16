@@ -14,18 +14,8 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/:id', function(req, res, next) {
-  axios.get('http://localhost:16000/contratos/' + req.params.id)
-    .then(function(response){
-      res.render('contrato', { title: "Contrato", contrato: response.data });
-    })
-    .catch(function(error){
-      console.log(error);
-    });
-});
-
 router.get('/entidade/:id', function(req, res, next) {
-  axios.get('http://localhost:16000/contratos?entidades=' + req.params.id)
+  axios.get('http://localhost:16000/contratos?entidade=' + req.params.id)
     .then(function(response){
       const contratos = response.data;
       let totalContratos = 0;
@@ -37,6 +27,18 @@ router.get('/entidade/:id', function(req, res, next) {
       console.log(error);
     });
 });
+
+router.get('/:id', function(req, res, next) {
+  axios.get('http://localhost:16000/contratos/' + req.params.id)
+    .then(function(response){
+      res.render('contrato', { title: "Contrato", contrato: response.data });
+    })
+    .catch(function(error){
+      console.log(error);
+    });
+});
+
+
 
 
 module.exports = router;
