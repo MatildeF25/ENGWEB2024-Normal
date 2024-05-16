@@ -1,7 +1,7 @@
 # ENGWEB2024-Normal
 
 ## Setup
-- Após a análise do dataset fiz um ficheiro em python para converter o csv em json, depois de convertido alterei o "idcontrato" para _id para que o mongo não criasse outro id e usa-se o fornecido.
+- Após a análise do dataset fiz um ficheiro em python para converter o csv em json, depois de convertido alterei o "idcontrato" para _id para que o mongo não criasse outro id e usa-se o fornecido e também passei de atring para numero o _id o precoContratual e o prazoExecucao.
 - Para importar o json para o mongo comecei por copiar o json para a pasta tmp do mongo com o comando:
 ```bash
 docker cp contratos2024.json mongoEW:/tmp
