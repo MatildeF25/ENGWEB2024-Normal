@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    body
+    header.w3-container.w3-teal
+      h1 Detalhes da Entidade
+
+    div.w3-container.w3-margin-top
+      p
+        strong NIPC da Entidade: 
+        | #{entidade}
+      p
+        strong Nome da Entidade: 
+        | #{NomeEntidade}
+
+    h2 Contratos da Entidade
+    table.w3-table-all.w3-hoverable
+      thead
+        tr.w3-teal
+          th ID Contrato
+          th Objeto do Contrato
+          th Data de Celebração
+          th Preço Contratual
+      tbody
+        each contrato in contratos
+          tr
+            td
+              a(href=`/${contrato._id}`) #{contrato._id}
+            td #{contrato.objectoContrato}
+            td #{contrato.dataCelebracaoContrato}
+            td #{contrato.precoContratual.toLocaleString('pt-PT', {style: 'currency', currency: 'EUR'})}
+
+    div.w3-container.w3-margin-top
+      p
+        strong Total dos Contratos: 
+        | #{totalContratos.toLocaleString('pt-PT', {style: 'currency', currency: 'EUR'})}
+
+    div.w3-container.w3-margin-top
+      a.w3-button.w3-teal(href='/') Voltar à Página Principal

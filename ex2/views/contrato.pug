@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    body
+        header.w3-container.w3-teal
+          h1 Detalhes do Contrato
+    
+        div.w3-container
+          h2 ID: #{contrato._id}
+          p
+            strong Tipo de Procedimento: 
+            | #{contrato.tipoprocedimento}
+          p
+            strong Objeto do Contrato: 
+            | #{contrato.objectoContrato}
+          p
+            strong Data de Publicação: 
+            | #{contrato.dataPublicacao}
+          p
+            strong Data de Celebração do Contrato: 
+            | #{contrato.dataCelebracaoContrato}
+          p
+            strong Preço Contratual: 
+            | #{contrato.precoContratual.toLocaleString('pt-PT', {style: 'currency', currency: 'EUR'})}
+          p
+            strong Prazo de Execução (dias): 
+            | #{contrato.prazoExecucao}
+          p
+            strong NIPC da Entidade Comunicante: 
+            | #{contrato.NIPC_entidade_comunicante}
+          p
+            strong Entidade Comunicante: 
+            | #{contrato.entidade_comunicante}
+          p
+            strong Fundamentação: 
+            | #{contrato.fundamentacao}
+    
+        div.w3-container.w3-margin-top
+          a.w3-button.w3-teal(href='/') Voltar

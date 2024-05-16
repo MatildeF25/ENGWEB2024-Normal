@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  body
+    header.w3-container.w3-teal
+      h1 Informação sobre Contratos
+
+    table.w3-table-all.w3-hoverable
+      thead
+        tr.w3-teal
+          th ID
+          th Objeto do Contrato
+          th Data de Celebração
+          th Preço Contratual
+          th NIPC da Entidade
+          th Nome da Entidade
+      tbody
+        each contrato in contratos
+          tr
+            td
+              a(href=`/${contrato._id}`) #{contrato._id}
+            td #{contrato.objectoContrato}
+            td #{contrato.dataCelebracaoContrato}
+            td #{contrato.precoContratual.toLocaleString('pt-PT', {style: 'currency', currency: 'EUR'})}
+            td
+              a(href=`/entidade/${contrato.NIPC_entidade_comunicante}`) #{contrato.NIPC_entidade_comunicante}
+            td #{contrato.entidade_comunicante}
